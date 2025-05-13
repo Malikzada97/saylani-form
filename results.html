@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMIT Results</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-content">
+            <img src="assets/images/saylani-logo.png" alt="saylani logo" class="logo">
+            
+            <div class="title-container">
+                <div class="social-icons">
+                    <a href="https://web.facebook.com/saylani.smit"><img src="assets/images/fb.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/saylanimassittraining"><img src="assets/images/insta.jpg" alt="Instagram"></a>
+                    <a href="https://www.youtube.com/@SaylaniMassITTraining"><img src="assets/images/yt.png" alt="YouTube"></a>
+                </div>
+                
+                <h1>SMIT Results</h1>
+                
+                <a href="#" class="student-portal-btn">
+                    <img src="assets/images/student.png" alt="Student Portal" class="ong-logo">
+                    Student Portal
+                </a>
+            </div>
+            
+            <div class="services">Services - Education - Results</div>
+            <div class="registration-links">
+                <a href="index.html">Registration</a>
+                <a href="idcard.html">Download ID Card</a>
+                <a href="#" class="active">Results</a>
+            </div>
+        </div>
+
+        <div class="form-content">
+            <hr>
+            
+            <form class="form-grid" id="resultsForm">
+                <div class="form-group full-width">
+                    <label for="rollno">Roll Number</label>
+                    <input type="text" id="rollno" class="form-control" placeholder="Enter your roll number" required>
+                </div>
+
+                <div class="form-group full-width" style="text-align: center;">
+                    <button type="submit" class="theme_btn">
+                        <span class="text_english">SEARCH RESULTS</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("resultsForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("In a real implementation, this would display the student's results.\nThis is a frontend-only demo.");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saylani Welfare Int Trust</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header-content">
+            <img src="assets/images/saylani-logo.png" alt="saylani logo" class="logo">
+            
+            <div class="title-container">
+                <div class="social-icons">
+                    <a href="https://web.facebook.com/saylani.smit"><img src="assets/images/fb.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/saylanimassittraining"><img src="assets/images/insta.jpg" alt="Instagram"></a>
+                    <a href="https://www.youtube.com/@SaylaniMassITTraining"><img src="assets/images/yt.png" alt="YouTube"></a>
+                </div>
+                
+                <h1>Registration Form - SMIT</h1>
+                
+                <a href="#" class="student-portal-btn">
+                    <img src="assets/images/student.png" alt="Student Portal" class="ong-logo">
+                    Student Portal
+                </a>
+            </div>
+            
+            <div class="services">Services - Education - Registration</div>
+            <div class="registration-links">
+                <a href="#" class="active">Registration</a>
+                <a href="idcard.html">Download ID Card</a>
+                <a href="results.html">Results</a>
+            </div>
+        </div>
+
+        <div class="form-content">
+            <hr>
+            
+            <form class="form-grid" id="registrationForm">
+                <!-- Row 1 -->
+                <div class="form-group">
+                    <label for="country">Select country</label>
+                    <select id="country" class="form-control" required>
+                        <option value="">Select country</option>
+                        <option value="pakistan">Pakistan</option>
+                        <option value="turkey">Turkey</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">Select city</label>
+                    <select id="city" class="form-control" required>
+                        <option value="">Select city</option>
+                        <option value="karachi">Karachi</option>
+                        <option value="lahore">Lahore</option>
+                        <option value="lahore">Quetta</option>
+                    </select>
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="form-group">
+                    <label for="course">Select course or event</label>
+                    <select id="course" class="form-control" required>
+                        <option value="">Select course or event</option>
+                        <option value="Artificial Intelligence">Artificial Intelligence</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Graphics Designing">Graphics Designing</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="proficiency">Computer proficiency</label>
+                    <select id="proficiency" class="form-control" required>
+                        <option value="">Select proficiency</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="Advance">Advance</option>
+                    </select>
+                </div>
+                
+                <!-- Row 3 -->
+                <div class="form-group">
+                    <label for="fullname">Full name</label>
+                    <input type="text" id="fullname" class="form-control" placeholder="Full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fathername">Father name</label>
+                    <input type="text" id="fathername" class="form-control" placeholder="Father name" required>
+                </div>
+                
+                <!-- Row 4 -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="03XX-XXXXXXX" pattern="[0-9]{4}-[0-9]{7}" required>
+                </div>
+                
+                <!-- Row 5 -->
+                <div class="form-group">
+                    <label for="cnic">CNIC</label>
+                    <input type="text" id="cnic" class="form-control" placeholder="XXXXX-XXXXXXX-X" pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fathercnic">Father's CNIC (optional)</label>
+                    <input type="text" id="fathercnic" class="form-control" placeholder="XXXXX-XXXXXXX-X" pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}">
+                </div>
+                
+                <!-- Row 6 -->
+                <div class="form-group">
+                    <label for="dob">Date of birth</label>
+                    <input type="date" id="dob" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="gender">Select gender</label>
+                    <select id="gender" class="form-control">
+                        <option value="">Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <!-- Full width row -->
+                <div class="form-group full-width">
+                    <label for="address">Address</label>
+                    <textarea id="address" class="form-control" placeholder="Address"></textarea>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="qualification">Last qualification</label>
+                    <input type="text" id="qualification" class="form-control" required>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="laptop">Do you have a Laptop?</label>
+                    <select id="laptop" class="form-control" required>
+                        <option value="">Select option</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                
+                <!-- Picture Upload -->
+                <div class="form-group full-width">
+                    <label class="section-title">Picture</label>
+                    <div class="picture-upload-container">
+                        <input type="file" id="picture" class="file-upload" accept="image/*" required hidden>
+                        <label for="picture" class="picture-upload-box">
+                            <span class="upload-icon">+ Upload</span>
+                        </label>
+                        <div class="upload-instructions">
+                            <ul>
+                                <li>With white or blue background</li>
+                                <li>File size must be less than 1MB</li>
+                                <li>File type: jpg, jpeg, png</li>
+                                <li>Upload recent passport size picture</li>
+                                <li>Your Face should be clearly visible without any Glasses</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Declarations -->
+                <div class="form-group full-width">
+                    <div class="declaration">
+                        <ol>
+                            <li>I hereby, solemnly declare that the data and facts mentioned herein are true and correct to the best of my knowledge. Further, I will abide by all the established and future regulations and policies of SMIT</li>
+                            <li>I hereby accept the responsibilities of good conduct and guarantee that I will not be involved in any other activity, political or ethical, but learning during my stay in the program.</li>
+                            <li>Defiance will render my admission canceled at any point in time.</li>
+                            <li>Upon completion, of the course, I will complete the required project by SWIT.</li>
+                            <li>It's mandatory for female students to wear abaya/hijab in the class</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <!-- reCAPTCHA -->
+                <div class="form-group full-width">
+                    <div class="recaptcha-container">
+                        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                        <div id="recaptcha-error" class="error-message">
+                            Please complete the reCAPTCHA verification.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Submit Button -->
+                <div class="form-group full-width" style="text-align: center;">
+                    <button type="submit" class="theme_btn">
+                        <span class="text_english">SUBMIT</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

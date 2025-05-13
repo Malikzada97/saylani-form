@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Printable ID Card</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: white;
+}
+
+.download-button {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.download-button button {
+  padding: 10px 20px;
+  background: #2be463;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.page {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.card {
+  width: 320px;
+  height: 470px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* Banner top/bottom */
+.banner.top {
+  background: url("assets/images/idtop.PNG") no-repeat center;
+  background-size: cover;
+  height: 50px;
+  width: 100%;
+}
+
+.banner.bottom {
+  background: url("assets/images/idbottom.PNG") no-repeat center;
+  background-size: cover;
+  height: 50px;
+  width: 100%;
+}
+
+/* Container for logos */
+.smit-wrapper {
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* SMIT logo as background */
+.smit-bg-logo {
+  background: url("assets/images/idlogo.png") no-repeat center;
+  background-size: 150px 150px;
+  position: absolute;
+  top: -25%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 150px;
+  /* opacity: 0.15; */
+  z-index: 0;
+}
+
+/* Saylani logo large */
+.saylani-logo-wide {
+  height: auto;
+  width: 240px;
+  z-index: 2;
+  position: relative;
+  margin-top: 90px;
+}
+
+/* Photo */
+.photo-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.photo-box img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid #00b050;
+  border-radius: 5px;
+}
+
+/* User Info */
+.user-info {
+  text-align: center;
+  font-size: 14px;
+}
+.user-info h2 {
+  font-size: 18px;
+  margin: 10px 0 5px 0;
+}
+.user-info .id {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Info Fields - back */
+.info-fields {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+.field {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #000;
+  padding: 6px 0;
+}
+
+/* QR and Note */
+.qr {
+  text-align: center;
+  margin-top: 10px;
+}
+.note {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 15px;
+}
+.signature {
+  text-align: center;
+}
+.signature hr {
+  width: 150px;
+  margin: 5px auto;
+}
+
+/* Divider */
+.divider-vertical {
+  width: 2px;
+  border-left: 2px dashed #000;
+  height: 500px;
+}
+
+.divider-horizontal {
+  margin: 40px 0 20px;
+  border-top: 2px dashed #000;
+}
+
+/* Instructions */
+.instructions {
+  margin: 0 20px;
+  font-size: 14px;
+  padding-left: 16%;
+}
+.instructions h3 {
+  margin-bottom: 10px;
+  color: red;
+  font-weight: bold;
+}
+.instructions ul {
+  padding-left: 20px;
+}
+.instructions li {
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 30px;
+}
+.footer-logo {
+  height: 50px;
+}
+.footer p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Print styles */
+@media print {
+  .download-button {
+    display: none;
+  }
+  .divider-horizontal,
+  .divider-vertical {
+    border-color: #000;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div class="page" id="card-content">
+    <div class="card-wrapper">
+      <!-- FRONT SIDE -->
+      <div class="card">
+        <div class="banner top"></div>
+
+        <div class="centered smit-wrapper">
+            <div class="smit-bg-logo"></div>
+            <img src="assets/images/idlogo2.png" class="saylani-logo-wide" alt="Saylani Logo" />
+          </div>
+        <div class="photo-box">
+          <img src="assets/images/student.png" alt="User Photo" id="student-photo" />
+        </div>
+
+        <div class="user-info">
+          <h2 id="student-name">STUDENT NAME</h2>
+          <p id="student-course">Course selected</p>
+          <p class="id" id="student-roll">roll number</p>
+        </div>
+
+        <div class="banner bottom"></div>
+      </div>
+
+      <!-- Vertical Divider -->
+      <div class="divider-vertical"></div>
+
+      <!-- BACK SIDE -->
+      <div class="card">
+        <div class="banner top"></div>
+
+        <div class="info-fields">
+          <div class="field"><span>Name:</span><span id="back-name">STUDENT NAME</span></div>
+          <div class="field"><span>Father name:</span><span id="back-father">FATHER NAME</span></div>
+          <div class="field"><span>CNIC:</span><span id="back-cnic">0000000000000</span></div>
+          <div class="field"><span>Course:</span><span id="back-course">COURSE</span></div>
+        </div>
+
+        <div class="qr">
+          <img id="qr-code" src="" alt="QR Code" />
+        </div>
+
+        <div class="note">
+          <strong>Note:</strong> This card is just for sample purpose not officially issued by SMIT.
+        </div>
+
+        <div class="signature">
+          <hr />
+          <p>Issuing authority</p>
+        </div>
+
+        <div class="banner bottom"></div>
+      </div>
+    </div>
+
+    <!-- HORIZONTAL DIVIDER -->
+    <hr class="divider-horizontal" />
+
+    <!-- INSTRUCTIONS -->
+    <div class="instructions">
+      <h3>Instructions:</h3><br>
+      <ul>
+        <li>Please colour print this Admit/ID card</li><br>
+        <li>Attestation of ID/Admit Card is extremely mandatory from SMIT</li><br>
+        <li>No student will be allowed to enter in Entry Test without attestation</li><br>
+        <li>Bring CNIC and Last qualification Marksheet/Certificate (original) at the time of attestation</li><br>
+        <li>Address: Directorate General of Social Welfare Department, Brewery Road, Quetta</li><br>
+        <li>Google Map: <a href="https://maps.app.goo.gl/Ksa3dJVodmXGBaxZ7">https://maps.app.goo.gl/Ksa3dJVodmXGBaxZ7</a></li><br>
+      </ul>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <img src="assets/images/saylani-logo.png" class="footer-logo" alt="Saylani Logo" />
+      <p>Donate Us: <br><a href="https://www.saylaniwelfare.com">https://www.saylaniwelfare.com</a></p>
+    </div>
+  </div>
+
+  <!-- Download Button -->
+  <div style="text-align: right; margin: 20px;">
+    <button onclick="downloadPDF()" style="padding: 10px 20px; font-weight: bold; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      Download PDF
+    </button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Get data from localStorage
+        let studentData = null;
+        
+        try {
+            const localData = localStorage.getItem("smit_student_data");
+            if (localData) {
+                studentData = JSON.parse(localData);
+            }
+        } catch (e) {
+            console.error("Failed to parse localStorage data", e);
+        }
+
+        // If no data found, redirect back to form
+        if (!studentData) {
+            alert('No student data found. Redirecting to registration form...');
+            window.location.href = "index.html";
+            return;
+        }
+
+        // Update front side
+        document.getElementById('student-photo').src = studentData.picture || 'assets/images/student.png';
+        document.getElementById('student-name').textContent = studentData.fullname.toUpperCase();
+        document.getElementById('student-course').textContent = studentData.course;
+        document.getElementById('student-roll').textContent = studentData.rollNumber;
+
+        // Update back side
+        document.getElementById('back-name').textContent = studentData.fullname.toUpperCase();
+        document.getElementById('back-father').textContent = studentData.fathername.toUpperCase();
+        document.getElementById('back-cnic').textContent = studentData.cnic;
+        document.getElementById('back-course').textContent = studentData.course;
+
+        // Update QR code
+        document.getElementById('qr-code').src = 
+            `https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${studentData.rollNumber}`;
+    });
+
+    // Updated PDF download function
+    function downloadPDF() {
+        const element = document.getElementById('card-content');
+        const opt = {
+            margin: [10, 10, 10, 10], // [top, left, bottom, right] margins in mm
+            filename: 'SMIT-ID-Card.pdf',
+            image: { type: 'jpeg', quality: 1 },
+            html2canvas: { 
+                scale: 2,
+                useCORS: true,
+                logging: true,
+                letterRendering: true
+            },
+            jsPDF: { 
+                unit: 'mm', 
+                format: 'a4', 
+                orientation: 'portrait'
+            },
+            pagebreak: { mode: 'avoid-all' }
+        };
+
+        // Create PDF
+        html2pdf().set(opt).from(element).save();
+    }
+  </script>
+</body>
+</html>

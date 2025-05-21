@@ -107,7 +107,7 @@
                 
                 <!-- Row 5 -->
                 <div class="form-group">
-                    <label for="cnic">CNIC</label>
+                    <label for="cnic">CNIC/B-Form</label>
                     <input type="text" id="cnic" class="form-control" placeholder="XXXXX-XXXXXXX-X" pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}" required>
                 </div>
                 
@@ -140,7 +140,14 @@
                 
                 <div class="form-group full-width">
                     <label for="qualification">Last qualification</label>
-                    <input type="text" id="qualification" class="form-control" required>
+                    <select id="qualification" class="form-control" required>
+                        <option value="">Select qualification</option>
+                        <option value="matric">Matric</option>
+                        <option value="fa_fsc">F.A/F.Sc</option>
+                        <option value="bsc">B.Sc</option>
+                        <option value="masters_bs">Masters/BS</option>
+                        <option value="higher">Higher</option>
+                    </select>
                 </div>
                 
                 <div class="form-group full-width">
